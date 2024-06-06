@@ -2637,7 +2637,7 @@ export default function CartPage() {
                                   height: '25px'
 
                                 }}
-                                // value={mtTypeOption ?? cartSelectData?.metal}
+                                // value={mtTypeOption ?? cartSelectData?.metal} ...
                                 value={mtTypeOption}
                                 onChange={(e) =>
                                   setmtTypeOption(e.target.value)
