@@ -2413,7 +2413,7 @@ const ProdDetail = () => {
                       <li className='proDeatilList'>Pcs/Wt</li>
                     </ul>
                     {
-                      fullProdData?.rd1?.map((data) => (
+                      fullProdData?.rd1.filter((item)=>item?.H == diaQColOpt.split("#")[0] && item?.J == diaQColOpt.split("#")[1]).map((data) => (
                         <ul style={{
                           display: 'flex',
                           textDecoration: 'none',
