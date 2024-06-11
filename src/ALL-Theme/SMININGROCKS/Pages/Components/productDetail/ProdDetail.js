@@ -2399,7 +2399,7 @@ const ProdDetail = () => {
                     <ul style={{
                       margin: '0px 0px 3px 0px'
                     }}>
-                      <li style={{ fontWeight: 700, color: 'rgb(125, 127, 133)' }}>{`Diamond Detail(${fullProdData?.rd1?.reduce((accumulator, data) => accumulator + data.M, 0)}/${fullProdData?.rd1?.reduce((accumulator, data) => accumulator + data?.N, 0).toFixed(2)}ct)`}</li>
+                      <li style={{ fontWeight: 700, color: 'rgb(125, 127, 133)' }}>{`Diamond Detail(${fullProdData?.rd1.filter((item)=>item?.H == diaQColOpt.split("#")[0] && item?.J == diaQColOpt.split("#")[1])?.reduce((accumulator, data) => accumulator + data.M, 0)}/${fullProdData?.rd1?.reduce((accumulator, data) => accumulator + data?.N, 0).toFixed(2)}ct)`}</li>
                     </ul>
                     <ul style={{
                       display: 'flex',
@@ -2413,7 +2413,7 @@ const ProdDetail = () => {
                       <li className='proDeatilList'>Pcs/Wt</li>
                     </ul>
                     {
-                      fullProdData?.rd1?.map((data) => (
+                      fullProdData?.rd1.filter((item)=>item?.H == diaQColOpt.split("#")[0] && item?.J == diaQColOpt.split("#")[1]).map((data) => (
                         <ul style={{
                           display: 'flex',
                           textDecoration: 'none',

@@ -155,7 +155,7 @@ export default function CartPage() {
   }, [cartListData])
 
 
-  console.log('singleProdData', fullprodData?.rd?.length,singleProdData, mtrdData, diaqcData, csData)
+  console.log('singleProdData',mtrdData?.U !== 1 ,singleProdData, mtrdData, diaqcData, csData,mtTypeOption)
 
 
   useEffect(() => {
@@ -2625,9 +2625,8 @@ export default function CartPage() {
                               >
                                 METAL TYPE:
                               </label>
-                             { (fullprodData?.rd?.length == 1 && fullprodData?.rd[0]?.U === 1) ? 
-                              <span>{mtTypeOption}</span>
-                             :
+
+                              {/* {(mtrdData?.U===1 ) && <span>{mtTypeOption}</span>} */}
                              <select
                                 style={{
                                   border: "none",
@@ -2649,7 +2648,6 @@ export default function CartPage() {
                                   </option>
                                 ))}
                               </select>
-                            }
                             </div>
                           )}
                         </div>
