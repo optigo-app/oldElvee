@@ -71,6 +71,7 @@ export default function ContinueWithEmail() {
                 if (trimmedEmail) {
                     localStorage.setItem("userEmailForPdList", trimmedEmail);
                 }
+                localStorage.setItem('registerEmail', email)
             } else {
                 navigation('/register', { state: { email: trimmedEmail } });
             }
