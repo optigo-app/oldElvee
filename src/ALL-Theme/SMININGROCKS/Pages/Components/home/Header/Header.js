@@ -1077,7 +1077,7 @@ export default function Header() {
                   >
                     Our Craftsmanship
                   </li>
-                  <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: lodingLogo ? '-5px' : '-25px' }}>
+                  <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: lodingLogo ? '-5px' : '-7px' }}>
                     {titleImg && <img src={titleImg} alt="Title" className="logoImage1" />}
                   </a>
                   <li
@@ -1127,7 +1127,7 @@ export default function Header() {
               <div
                 className="HeaderMenuItemMainDiv"
               >
-                <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-25px' }}>
+                <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '15px' }}>
                   {titleImg && <img src={titleImg} alt="Title" className="logoImage1" />}
                 </a>
                 <ul className="nav-ul-shop" style={{ height: '100%', display: 'flex', alignItems: 'center', listStyle: "none", padding: 0 }}>
