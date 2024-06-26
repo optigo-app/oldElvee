@@ -71,7 +71,7 @@ export default function Footer() {
             <div className='ElveFooterMain'>
                 <div className='ElveFooter1'>
                     <p className='elveBox1Title'>Sign up for our updates</p>
-                    <p style={{margin: '0px', maxWidth: '350px', fontSize: '13px'}}>Sign up for our updates
+                    <p style={{margin: '0px', maxWidth: '350px', fontSize: '15px'}}>Sign up for our updates
                         Subscribe to our emails to get exclusive first access to new products, surveys, and events.</p>
                     <div className='ElveFooter1Input' style={{ marginTop: '20px', display: 'flex' }}>
                         <input type='text' placeholder='Enter Your Email' className='eleBox1InputBox' value={email} onChange={handleEmailChange} />
@@ -140,7 +140,6 @@ export default function Footer() {
                                     <span>
                                         {companyInfoData?.FrontEndAddress}, {companyInfoData?.FrontEndCity} - {companyInfoData?.FrontEndZipCode}
                                     </span>
-
                                     {/* <span>Plot No. – M1 To M6, Gujarat Hira Bourse Gem & Jewellery Park, Pal-Hazira Road, Ichchhapore, Surat - 394510</span> */}
                                 </p>
                                 <p className="footerOfficeDesc" style={{ fontFamily: 'PT Sans, sans-serif' }}>

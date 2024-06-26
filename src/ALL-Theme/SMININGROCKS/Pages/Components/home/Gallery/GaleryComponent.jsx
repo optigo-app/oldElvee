@@ -74,7 +74,7 @@ export default function App() {
       >
         {sliderData.map((slide, index) => (
           <SwiperSlide key={index} style={{ marginRight: '0px' }}>
-            <img loading="lazy" src={storImagePath() + slide.imageUrl} alt={`Slide ${index}`} style={{objectFit:'contain', width:'100%'}} />
+            <img loading="lazy" src={storImagePath() + slide.imageUrl} alt={`Slide ${index}`} style={{objectFit:'contain', width:'100%', padding: '28px'}} />
           </SwiperSlide>
         ))}
       </Swiper>

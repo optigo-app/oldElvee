@@ -81,9 +81,7 @@ body{
     font-weight: bold;
 }
 .hbox1_2_info_content{
-    font-size: 18px;
-    font-weight: bold;
-    color: #989898;
+    font-size: 17px;
 }
 .end_h{
     display: flex;

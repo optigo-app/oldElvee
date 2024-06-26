@@ -2,7 +2,7 @@
     color: rgba(29, 50, 88, 0.8) !important;
     display: flex;
     border-top: 1px solid black;
-    padding: 35px 35px 35px 110px;
+    padding: 35px 35px 35px 35px;
 }
 
 .ElveFooter1 {
@@ -55,7 +55,7 @@
 }
 
 .ElveFooterDesc {
-    font-size: 12px;
+    font-size: 15px;
     font-family: 'PT Sans', sans-serif;
     cursor: pointer;
     margin-bottom: 9px;
@@ -107,7 +107,7 @@
 }
 
 .footerOfficeDesc {
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .eleBox1InputBox::placeholder {

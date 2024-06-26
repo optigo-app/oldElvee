@@ -334,7 +334,7 @@ export function ScrollToView(param) {
 
     const element = document?.getElementById(param);
     if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
 }
 

@@ -79,7 +79,7 @@ export default function Home() {
           let favIcon = response?.data?.Data?.rd[0]?.favicon
           let companyLogo = response?.data?.Data?.rd[0]?.companylogo
           setTitle(title);
-          setFavIcon(favIcon)
+          setFavIcon(favIcon);
           setCompanyTitleLogo(companyLogo);
           window.scrollTo({
             top: 0,
@@ -328,7 +328,7 @@ export default function Home() {
   return (
     <div className='paddingTopMobileSet' style={{ backgroundColor: 'white', paddingTop: '0px' }}>
       <div className='homeMain'>
-      <Helmet>
+        <Helmet>
           <title>{title}</title>
           <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
           <meta name="description" content={title} />
@@ -357,7 +357,7 @@ export default function Home() {
             {/* <ShopByCategory /> */}
             {/* <SmilingBrides /> */}
             {/* <FeaturedCollection /> */}
-            <div style={{ marginTop: '60px' }}>
+            <div style={{ marginTop: '30px' }}>
               {/* <SustainAbility /> */}
             </div>
             {/* <ShopifySection /> */}
