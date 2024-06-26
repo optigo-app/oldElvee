@@ -233,15 +233,15 @@ export default function Payment() {
                                         <p className='orderSubTitle'>Subtotal</p>
                                         <p style={{ fontWeight: 500, display: 'flex', margin: '0px' }}>
 
-                                            <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />{TotlaPrice}</p>
+                                            <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />{Math.ceil(TotlaPrice)}</p>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgb(233, 233, 233)', paddingBottom: "5px" }}>
                                         <p className='orderSubTitle'>Estimated Tax(3%)</p>
-                                        <p style={{ fontWeight: 500, display: 'flex', margin: '0px' }}> <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />{TotlaPriceText}</p>
+                                        <p style={{ fontWeight: 500, display: 'flex', margin: '0px' }}> <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />{Math.ceil(TotlaPriceText)}</p>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
                                         <p className='orderSubTitle'>Estimated Total</p>
-                                        <p style={{ fontWeight: 500, display: 'flex', margin: '0px' }}> <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />{finalTotal}</p>
+                                        <p style={{ fontWeight: 500, display: 'flex', margin: '0px' }}> <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />{Math.ceil(finalTotal)}</p>
                                     </div>
                                 </div>
                                 <div className='deliveryShiipingMain'>

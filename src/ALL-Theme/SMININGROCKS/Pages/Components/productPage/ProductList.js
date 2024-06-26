@@ -3151,7 +3151,7 @@ const ProductList = () => {
                                         <div className={show4ImagesView ? "feature4" : 'feature'}>
                                           <p style={{ margin: '0px' }}>
                                             <span className="feature-count">NWT :
-                                            </span> {parseFloat(products?.updNWT).toFixed(2)}
+                                            </span> {parseFloat(products?.updNWT).toFixed(3)}
                                           </p>
                                         </div>
                                       }
@@ -3212,7 +3212,9 @@ const ProductList = () => {
                                             <p className="feature4DesignNum" style={{ margin: '0px', fontSize: '15px' }}>
                                               <span className="property-type feature4DesignNum" style={{ display: 'flex', fontSize: '15px', fontWeight: 600 }}>
                                                 <div className="currencyFont" dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />
-                                                {products?.ismrpbase === 1 ? products?.mrpbaseprice : PriceWithMarkupFunction(products?.markup, products?.price, currData?.CurrencyRate)?.toFixed(2)}
+                                                {/* {products?.ismrpbase === 1 ? products?.mrpbaseprice : PriceWithMarkupFunction(products?.markup, products?.price, currData?.CurrencyRate)?.toFixed(3)} */}
+
+                                                {products?.ismrpbase === 1 ? Math.ceil(products?.mrpbaseprice) : Math.ceil(PriceWithMarkupFunction(products?.markup, products?.price, currData?.CurrencyRate)?.toFixed(3))} 
                                               </span>
                                             </p>
                                           </div>

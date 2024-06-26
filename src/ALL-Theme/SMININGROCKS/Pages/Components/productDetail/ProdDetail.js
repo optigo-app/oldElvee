@@ -1419,7 +1419,7 @@ const ProdDetail = () => {
         (diaUpdatedPrice() ?? 0) +
         (colUpdatedPrice() ?? 0)
       )
-      return PriceWithMarkupFunction(designMarkUp, IsAmountPrice, currData?.CurrencyRate, sizeWisePrice)
+      return Math.ceil(PriceWithMarkupFunction(designMarkUp, IsAmountPrice, currData?.CurrencyRate, sizeWisePrice))
     }
     else {
       const percentMarkupPlus = (mtrdData?.AB ?? 0) + (catSizeData?.MarkUp ?? 0)
@@ -1432,7 +1432,7 @@ const ProdDetail = () => {
         (colUpdatedPrice() ?? 0)
       )
       // console.log("finalPrice", CalcPrice, percentMarkupPlus);
-      return PriceWithMarkupFunction(percentMarkupPlus, CalcPrice, currData?.CurrencyRate)
+      return Math.ceil(PriceWithMarkupFunction(percentMarkupPlus, CalcPrice, currData?.CurrencyRate))
     }
   }
 
@@ -2145,7 +2145,7 @@ const ProdDetail = () => {
                       {/* Price:{" "} */}
                       <span className='mainpriceDeatilPage'>
                         <div dangerouslySetInnerHTML={{ __html: decodeEntities(currData?.Currencysymbol) }} />
-                        {mtrdData?.U === 1 ? mtrdData?.Z : FinalPrice()}
+                        {mtrdData?.U === 1 ? Math.ceil(mtrdData?.Z) : FinalPrice()}
                         {/* {`${(
                           (((mtrdData?.V ?? 0)/currData?.CurrencyRate) + (mtrdData?.W ?? 0) + (mtrdData?.X ?? 0))+
                           (dqcData ?? 0) +

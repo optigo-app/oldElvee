@@ -487,7 +487,7 @@ export default function MyWishList() {
                             style={{ fontFamily: "serif", marginTop: '2px' }}
                           />
                         }
-                        {item.TotalUnitCost}
+                        {Math.ceil(item.TotalUnitCost)}
                       </p>
                     )}
                   </div>

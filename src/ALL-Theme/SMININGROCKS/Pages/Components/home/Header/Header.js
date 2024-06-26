@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { Badge, ButtonBase, Dialog, Divider, Drawer, Skeleton, SwipeableDrawer, Tabs, TextField, useMediaQuery } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { PiStarThin } from "react-icons/pi";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoCaretDown, IoCaretDownSharp, IoSearchOutline } from "react-icons/io5";
 import { ABOUT_US, ACCOUNT, BLOG, CELEBRITY, CUSTERM_SERVICES, ETERNITY_BANDS, FINE_JEWELLERY_GIFTS, FOR_HIM, FREE_INTERNATIONAL_SHIPPING, IMPACT, LAB_GROWN, LIFETIME_WARRANTY, LOGIN, LOGOUT_MESSAGE, LOOK_BOOK, MONEY_BACK_GUARANTEE, PRESS, SHOP } from "../../../../lib/consts/Strings";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { PiStarFourThin } from "react-icons/pi";
@@ -34,6 +34,8 @@ import { FilterAPI, FilterListAPI } from "../../../../Utils/API/FilterListAPI";
 import { toast } from "react-toastify";
 import { SearchProductDataAPI } from "../../../../Utils/API/SearchProductDataAPI";
 import { SearchPriceDataAPI } from "../../../../Utils/API/SearchPriceDataAPI";
+import { FaCaretDown } from "react-icons/fa6";
+import { AiFillCaretDown } from "react-icons/ai";
 
 export default function Header() {
   // const [titleImg, setTitleImg ] = useState() 
@@ -1047,15 +1049,8 @@ export default function Header() {
         <div className="sminingHeaderWeb ">
           {islogin == 'false' ?
             <div className="Smining-Top-Header ">
-              <div
-                style={{
-                  width: "90%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <ul className="nav-ul-shop" style={{ listStyle: "none", padding: 0 }}>
+              <ul className="nav-ul-shop" style={{ listStyle: "none", padding: 0 }}>
+                <div className="elve_headerDiv1">
                   <li
                     className="nav-li-smining"
                     style={{ cursor: "pointer" }}
@@ -1077,57 +1072,56 @@ export default function Header() {
                   >
                     Our Craftsmanship
                   </li>
-                  <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: lodingLogo ? '-5px' : '-7px' }}>
+                </div>
+                <div className="elve_headerDiv2">
+                  <a href="/" style={{ display: 'flex',height:'100%', justifyContent: 'center', alignItems: 'center', marginTop: lodingLogo ? '-5px' : '-7px' }}>
                     {titleImg && <img src={titleImg} alt="Title" className="logoImage1" />}
                   </a>
-                  <li
-                    className="nav-li-smining"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => ScrollToView('mainGalleryConatinerID')}
+                </div>
+                <div className="elve_headerDiv3">
+                  <div>
+                    <li
+                      className="nav-li-smining"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => ScrollToView('mainGalleryConatinerID')}
+                    >
+                      Gallery
+                    </li>
+                    <li
+                      className="nav-li-smining"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => ScrollToView('mainSocialMediaConatinerID')}
+                    >
+                      Social Media
+                    </li>
+                    <li
+                      className="nav-li-smining"
+                      style={{ cursor: "pointer" }}
+                    // onClick={() => navigation("/contact")}
+                    >
+                      Contact
+                    </li>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: 'center',
+                      alignItems: 'center'
+                    }}
                   >
-                    Gallery
-                  </li>
-                  <li
-                    className="nav-li-smining"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => ScrollToView('mainSocialMediaConatinerID')}
-                  >
-                    Social Media
-                  </li>
-                  <li
-                    className="nav-li-smining"
-                    style={{ cursor: "pointer" }}
-                  // onClick={() => navigation("/contact")}
-                  >
-                    Contact
-                  </li>
-                </ul>
-              </div>
-
-              <div
-                style={{
-                  width: "10%",
-                  display: "flex",
-                  justifyContent: 'center'
-                }}
-              >
-                <ul className="nav-ul-shop">
-                  <li
-                    className="nav-li-smining"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => navigation('/LoginOption')}
-                  >
-                    Log In
-                  </li>
-                </ul>
-              </div>
+                    <p style={{fontSize: '14px' ,textTransform:'capitalize', margin: '0px 20px 0px 0px', cursor: 'pointer'}} onClick={() => navigation('/LoginOption')}>
+                      Log In
+                    </p>
+                  </div>
+                </div>
+              </ul>
             </div>
             :
             <div className="Smining-Top-LoginHeader">
               <div
                 className="HeaderMenuItemMainDiv"
               >
-                <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '15px' }}>
+                <a href="/" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                   {titleImg && <img src={titleImg} alt="Title" className="logoImage1" />}
                 </a>
                 <ul className="nav-ul-shop" style={{ height: '100%', display: 'flex', alignItems: 'center', listStyle: "none", padding: 0 }}>
@@ -1143,7 +1137,7 @@ export default function Header() {
                       }}
                       onClick={() => handleMenuClick(item)}
                     >
-                      {item.menuname}
+                      {item.menuname}<IoCaretDownSharp style={{ height: '24px', width: '20px', marginLeft: '3px' }} />
                     </li>
                   ))}
                 </ul>
@@ -1157,7 +1151,7 @@ export default function Header() {
                   marginRight: '20px'
                 }}
               >
-                <ul className="nav-ul-shop" style={{ marginTop: '24px' }}>
+                <ul className="nav-ul-shop-afterLogin">
                   <>
                     {/* {location?.pathname == '/productpage' &&
                       <li style={{ cursor: "pointer", textDecoration: 'none', marginTop: '0' }} onClick={toggleOverlay}>
@@ -1196,7 +1190,7 @@ export default function Header() {
                     </Badge></>
                   <Tooltip title="Account">
                     <li
-                      className="nav-li-smining"
+                      className="nav-li-smining-Afterlogin"
                       style={{ cursor: "pointer", textDecoration: 'none', marginTop: "0" }}
                       onClick={() => navigation("/account")}
                     >
@@ -1204,11 +1198,11 @@ export default function Header() {
                     </li>
                   </Tooltip>
                   <li
-                    className="nav-li-smining"
+                    className="nav-li-smining-Afterlogin"
                     style={{ cursor: "pointer", marginTop: "0" }}
                     onClick={handleLogout}
                   >
-                    <FaPowerOff style={{ fontSize: '25px' }} />
+                    <FaPowerOff style={{ fontSize: '25px', color: '#AF8238' }} />
                   </li>
                 </ul>
               </div>
@@ -1234,10 +1228,10 @@ export default function Header() {
                   <div style={{ width: '100%', display: 'flex', gap: '60px', textTransform: 'uppercase' }}>
                     {selectedData?.param1?.map((param1Item, param1Index) => (
                       <div key={param1Index}>
-                        <span onClick={() => handleMenuClick(menuItems[hoveredIndex], param1Item)} className="level1MenuData" key={param1Index} style={{ fontSize: '15px', marginBottom: '10px', fontFamily: '"PT Sans", sans-serif', textAlign: 'start', letterSpacing: 1, fontWeight: 600, cursor: 'pointer' }} > {param1Item?.param1dataname}</span>
-                        <div style={{ height: '300px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column' }}>
+                        <span onClick={() => handleMenuClick(menuItems[hoveredIndex], param1Item)} className="level1MenuData" key={param1Index} style={{ fontSize: '16px', textDecoration: 'underline', marginBottom: '10px', fontFamily: '"PT Sans", sans-serif', textAlign: 'start', letterSpacing: 1, fontWeight: 500, cursor: 'pointer' }} > {param1Item?.param1dataname}</span>
+                        <div style={{ height: '300px', display: 'flex', flexWrap: 'wrap', flexDirection: 'column', marginLeft: '15px' }}>
                           {param1Item?.param2?.map((param2Item, param2Index) => (
-                            <p className="level2menuData" key={param2Index} onClick={() => handleMenuClick(menuItems[hoveredIndex], param1Item, param2Item)} style={{ fontSize: '13.5px', margin: '6px 15px 6px 0px', fontFamily: '"PT Sans", sans-serif', letterSpacing: 0.4, textAlign: 'start', cursor: 'pointer', textTransform: 'capitalize', paddingRight: '15px' }}>
+                            <p className="level2menuData" key={param2Index} onClick={() => handleMenuClick(menuItems[hoveredIndex], param1Item, param2Item)} style={{ fontSize: '15px', margin: '3px 15px 3px 0px', fontFamily: '"PT Sans", sans-serif', letterSpacing: 0.4, textAlign: 'start', cursor: 'pointer', textTransform: 'capitalize', paddingRight: '15px' }}>
                               {param2Item?.param2dataname}
                             </p>
                           ))}
@@ -1294,7 +1288,7 @@ export default function Header() {
             className="mobileViewFirstDiv2"
           >
             <a href="/" className="mobileViewFirstDiv2">
-              {titleImg && <img src={titleImg} className="MainlogogMobileImage" style={islogin == 'true' ? containerStyle : alternateStyle} />}
+              {titleImg && <img src={titleImg} className="MainlogogMobileImage" />}
             </a>
           </div>
           <div
@@ -1373,8 +1367,18 @@ export default function Header() {
                     </li>
                   </Badge>
 
+                  <Tooltip title="Account">
+                    <li
+                      className="nav-li-smining-Afterlogin headertabProfileIcone"
+                      style={{ cursor: "pointer", textDecoration: 'none', marginTop: "0" }}
+                      onClick={() => navigation("/account")}
+                    >
+                      <IoPersonOutline color="#7D7F85" fontSize='25px' />
+                    </li>
+                  </Tooltip>
+
                   <li
-                    className="nav-li-smining"
+                    className="nav-li-smining-Afterlogin"
                     style={{ cursor: "pointer", marginTop: "0" }}
                     onClick={handleLogout}
                   >

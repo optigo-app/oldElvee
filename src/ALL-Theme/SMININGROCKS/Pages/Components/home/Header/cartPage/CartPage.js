@@ -155,7 +155,7 @@ export default function CartPage() {
   }, [cartListData])
 
 
-  console.log('singleProdData',mtrdData?.U !== 1 ,singleProdData, mtrdData, diaqcData, csData,mtTypeOption)
+  console.log('singleProdData', mtrdData?.U !== 1, singleProdData, mtrdData, diaqcData, csData, mtTypeOption)
 
 
   useEffect(() => {
@@ -703,45 +703,45 @@ export default function CartPage() {
   const [reamkrDesignNumber, setDesignNumebr] = useState(false);
 
   const handleSubmit = async (data) => {
-    if (!remarks || remarks.trim() === "") {
-      // toast.error("Enter a value for remarks.");
-    } else {
-      try {
-        // setIsLoading(true);
-        const storeInit = JSON.parse(localStorage.getItem("storeInit"));
-        const { FrontEnd_RegNo } = storeInit;
-        const combinedValue = JSON.stringify({
-          // designno: `${reamkrDesignNumber}`,
-          // autocode: `${remakrAutuCode}`,
+    // if (!remarks || remarks.trim() === "") {
+    // toast.error("Enter a value for remarks.");
+    // } else {
+    try {
+      // setIsLoading(true);
+      const storeInit = JSON.parse(localStorage.getItem("storeInit"));
+      const { FrontEnd_RegNo } = storeInit;
+      const combinedValue = JSON.stringify({
+        // designno: `${reamkrDesignNumber}`,
+        // autocode: `${remakrAutuCode}`,
 
-          designno: `${data.designno}`,
-          autocode: `${data.autocode}`,
-          remarks: `${remarks}`,
-          FrontEnd_RegNo: `${FrontEnd_RegNo}`,
-          Customerid: `${customerID}`,
-        });
-        const encodedCombinedValue = btoa(combinedValue);
-        const body = {
-          con: `{\"id\":\"\",\"mode\":\"SAVEDESIGNREMARK\",\"appuserid\":\"${userEmail}\"}`,
-          f: "Header (handleSingleRemaksSubmit)",
-          p: encodedCombinedValue,
-        };
-        const response = await CommonAPI(body);
-        console.log('reeeeeeeeeeeeeeeeeeeeeeeeeee', response);
-        if (response.Data.rd[0].stat === 1) {
-          await getCartData()
-          // toast.success("Add remark successfully");
-          setShowRemarkFields(!showRemarkFields)
-          setRemarksApiRes(response.Data.rd[0]?.design_remark)
-        } else {
-          alert("Error");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      } finally {
-        setIsLoading(false);
+        designno: `${data.designno}`,
+        autocode: `${data.autocode}`,
+        remarks: `${remarks}`,
+        FrontEnd_RegNo: `${FrontEnd_RegNo}`,
+        Customerid: `${customerID}`,
+      });
+      const encodedCombinedValue = btoa(combinedValue);
+      const body = {
+        con: `{\"id\":\"\",\"mode\":\"SAVEDESIGNREMARK\",\"appuserid\":\"${userEmail}\"}`,
+        f: "Header (handleSingleRemaksSubmit)",
+        p: encodedCombinedValue,
+      };
+      const response = await CommonAPI(body);
+      console.log('reeeeeeeeeeeeeeeeeeeeeeeeeee', response);
+      if (response.Data.rd[0].stat === 1) {
+        await getCartData()
+        // toast.success("Add remark successfully");
+        setShowRemarkFields(!showRemarkFields)
+        setRemarksApiRes(response.Data.rd[0]?.design_remark)
+      } else {
+        alert("Error");
       }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
     }
+    // }
   };
 
   const [lastEnteredQuantity, setLastEnteredQuantity] = useState(cartSelectData?.Quantity || "");
@@ -1206,7 +1206,7 @@ export default function CartPage() {
         (diaUpdatedPrice() ?? 0) +
         (colUpdatedPrice() ?? 0)
       ).toFixed(2)
-      return PriceWithMarkupFunction(designMarkUp, IsAmountPrice, currData?.CurrencyRate).toFixed(2)
+      return Math.ceil(PriceWithMarkupFunction(designMarkUp, IsAmountPrice, currData?.CurrencyRate))
     }
     else {
       const percentMarkupPlus = (mtrdData?.AB ?? 0) + (catSizeData?.MarkUp ?? 0)
@@ -1218,7 +1218,7 @@ export default function CartPage() {
         (diaUpdatedPrice() ?? 0) +
         (colUpdatedPrice() ?? 0)
       ).toFixed(2)
-      return PriceWithMarkupFunction(percentMarkupPlus, CalcPrice, currData?.CurrencyRate).toFixed(2)
+      return Math.ceil(PriceWithMarkupFunction(percentMarkupPlus, CalcPrice, currData?.CurrencyRate))
     }
   }
 
@@ -1253,7 +1253,8 @@ export default function CartPage() {
 
   const [openItemRemark, setOpenItemRemark] = useState(false);
 
-  const handleClickOpenItemRemark = (autoCode, designNumbder) => {
+  const handleClickOpenItemRemark = (autoCode, designNumbder, item) => {
+    setRemarks(item?.Remarks);
     setOpenItemRemark(true);
     setRemarkAutoCodr(autoCode);
     setDesignNumebr(designNumbder);
@@ -1394,8 +1395,8 @@ export default function CartPage() {
                 type="button"
                 onClick={() => {
                   handleSubmit(cartSelectData);
-                  handleCloseItemRemark();
                   setRemarks('');
+                  handleCloseItemRemark();
                 }}
               >
                 Save
@@ -1731,7 +1732,7 @@ export default function CartPage() {
 
                                 <p style={{ position: 'absolute', bottom: '13px' }}>{item?.Remarks ? 'Remark : ' + item?.Remarks : ''}</p>
                                 <div className="bottomBtnCartWeb" style={{ display: 'flex', justifyContent: 'space-between', position: 'absolute', bottom: '10px', width: '35%' }}>
-                                  <p onClick={() => handleClickOpenItemRemark(item.autocode, item.designno)} style={{ margin: '0px', fontSize: '13px', cursor: 'pointer', color: '#7d7f85', textDecoration: 'underline' }}>Item Remark</p>
+                                  <p onClick={() => handleClickOpenItemRemark(item.autocode, item.designno, item)} style={{ margin: '0px', fontSize: '13px', cursor: 'pointer', color: '#7d7f85', textDecoration: 'underline' }}>Item Remark</p>
                                   {/* <p style={{ margin: '0px', fontSize: '13px', cursor: 'pointer', color: '#7d7f85', textDecoration: 'underline' }}>Item Remark</p> */}
                                   <p style={{ margin: '0px', fontSize: '13px', cursor: 'pointer', color: '#7d7f85', textDecoration: 'underline' }}
                                     onClick={() => handleClickOpenSingleRemove(item)}
@@ -1927,7 +1928,7 @@ export default function CartPage() {
                                               METAL TYPE :
                                             </label>
                                             {<select
-                                              style={{ 
+                                              style={{
                                                 border: "none",
                                                 outline: "none",
                                                 color: "#7d7f85",
@@ -2221,7 +2222,7 @@ export default function CartPage() {
                                         }}
                                         style={{ fontFamily: "sans-serif" }}
                                       />
-                                      {mtrdData?.U ===1 ? mtrdData?.Z : (FinalPrice() * lastEnteredQuantity).toFixed(2)}
+                                      {mtrdData?.U === 1 ? Math.ceil(mtrdData?.Z) : (FinalPrice() * lastEnteredQuantity)}
                                     </span>
                                   </span>
                                 </div>
@@ -2627,7 +2628,7 @@ export default function CartPage() {
                               </label>
 
                               {/* {(mtrdData?.U===1 ) && <span>{mtTypeOption}</span>} */}
-                             <select
+                              <select
                                 style={{
                                   border: "none",
                                   outline: "none",
@@ -2855,16 +2856,21 @@ export default function CartPage() {
                         }}
                       >
                         {currencySymbol?.Currencysymbol}
-                        {(
-                          ((((mtrdData?.V ?? 0) / currData?.CurrencyRate) + (mtrdData?.W ?? 0) + (mtrdData?.X ?? 0)) +
-                            (dqcData ?? 0) +
-                            (csqcData ?? 0) +
-                            (sizeMarkup ?? 0) +
-                            (metalUpdatedPrice() ?? 0) +
-                            (diaUpdatedPrice() ?? 0) +
-                            (colUpdatedPrice() ?? 0)) *
-                          lastEnteredQuantity
-                        ).toFixed(2)}
+                        {
+                          Math.ceil(
+                            ((
+                              ((mtrdData?.V ?? 0) / currData?.CurrencyRate) + (mtrdData?.W ?? 0) + (mtrdData?.X ?? 0)) +
+                              (dqcData ?? 0) +
+                              (csqcData ?? 0) +
+                              (sizeMarkup ?? 0) +
+                              (metalUpdatedPrice() ?? 0) +
+                              (diaUpdatedPrice() ?? 0) +
+                              (colUpdatedPrice() ?? 0)
+                            ) *
+                            lastEnteredQuantity
+                          )
+
+                        }
                       </span>
                     </span>
                   </div>
