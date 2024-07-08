@@ -43,6 +43,21 @@
     margin: 40px 0px 25px 0px !important;
   }
 
+  .socialImgMainDivMain{
+    display: flex;
+    justify-content: center;
+    height: 450px;
+  }
+  .socialImgMainDiv{
+    height: 400px;
+    width: 400px;
+    padding: 10px;
+  }
+
+  .social_ImgMain{
+    width: 100%;
+    object-fit: contain;
+  }
 
   @media (min-width: 445px) and (max-width: 768px) {
 

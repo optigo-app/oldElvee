@@ -3099,7 +3099,7 @@ const ProductList = () => {
                                           }
                                           checkedIcon={
                                             <LocalMallIcon
-                                              sx={{ fontSize: "22px", color: "#009500" }}
+                                              sx={{ fontSize: "22px", color: "#0e244d" }}
                                             />
                                           }
                                           disableRipple={true}

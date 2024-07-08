@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 
 import { Pagination } from 'swiper/modules';
 import { storImagePath } from '../../../../Utils/globalFunctions/GlobalFunction';
+import img1 from '../../../assets/Pintrest.jpg'
 
 const sliderData = [
   {
@@ -32,7 +33,30 @@ export default function SocialMedia() {
       <div>
         <p className='socialmediaptag'>Social Media</p>
       </div>
-      <Swiper
+
+      <div className='socialImgMainDivMain'>
+        <div className='socialImgMainDiv'>
+          <a href='https://www.instagram.com/p/Ce7uShwlDBi/?hl=en'>
+            <img src={storImagePath() + '/images/HomePage/SocialMedia/socialMedia1.jpg'} className='social_ImgMain' />
+          </a>
+        </div>
+        <div className='socialImgMainDiv'>
+          <a href='https://in.pinterest.com/pin/706854104032666402/'>
+            <img src={storImagePath() + '/images/HomePage/SocialMedia/socialMedia2.jpg'} className='social_ImgMain' />
+          </a>
+        </div>
+        <div className='socialImgMainDiv'>
+          <a href='https://www.facebook.com/photo/?fbid=5153569661402827&set=a.1321180487975116'>
+            <img src={storImagePath() + '/images/HomePage/SocialMedia/socialMedia3.jpg'} className='social_ImgMain' />
+          </a>
+        </div>
+        <div className='socialImgMainDiv'>
+          <a href='https://www.linkedin.com/feed/update/urn:li:share:7118470948286009344/?actorCompanyId=3118775'>
+            <img src={storImagePath() + '/images/HomePage/SocialMedia/socialMedia4.jpg'} className='social_ImgMain' />
+          </a>
+        </div>
+      </div>
+      {/* <Swiper
         slidesPerView={1}
         spaceBetween={10}
         loop={true}
@@ -63,7 +87,10 @@ export default function SocialMedia() {
             <img loading="lazy" src={storImagePath() + slide.imageUrl} alt={`Slide ${index}`} style={{objectFit:'contain', width:'100%', padding: '27px'}} />
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> */}
     </div>
   );
 }
+
+
+{/* <a href='https://www.instagram.com/loveindiamonds/?igsh=MTVic2NuM2o2NW01Yw%3D%3D&utm_source=qr'> */ }

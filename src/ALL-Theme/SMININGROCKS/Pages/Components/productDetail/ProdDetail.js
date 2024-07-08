@@ -21,6 +21,8 @@ import { IoIosPlayCircle } from "react-icons/io";
 import { getDesignPriceList } from '../../../Utils/API/PriceDataApi'
 import { FullProInfoAPI } from '../../../Utils/API/FullProInfoAPI'
 import { findCsQcId, findCsQcIdDiff, findDiaQcId, findMetalTypeId, findValueFromId } from '../../../Utils/globalFunctions/GlobalFunction'
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const ProdDetail = () => {
 
@@ -1533,7 +1535,6 @@ const ProdDetail = () => {
                     width: "100%",
                     zindex: -1,
                     position: "relative",
-                    objectFit: "cover",
                     marginLeft: "51px",
                     display: imgLoading ? "none" : "block",
                   }}
@@ -2170,12 +2171,12 @@ const ProdDetail = () => {
                   <div className='wishlistcont'>
                     <Checkbox
                       icon={
-                        <StarBorderIcon
+                        <FavoriteBorderIcon
                           sx={{ fontSize: "25px", color: "#d2815f" }}
                         />
                       }
                       checkedIcon={
-                        <StarIcon sx={{ fontSize: "25px", color: "#d2815f" }} />
+                        <FavoriteIcon sx={{ fontSize: "25px", color: "#d2815f" }} />
                       }
                       disableRipple={true}
                       checked={WishListFlag}

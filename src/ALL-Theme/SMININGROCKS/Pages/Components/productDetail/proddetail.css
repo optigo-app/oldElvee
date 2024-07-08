@@ -325,6 +325,11 @@
 
 }
 
+.smilingDeatilPageMainImage{
+    max-height: 650px;
+    object-fit: contain;
+    margin-top: 50px;
+}
 @media screen and (max-width:1731px) {
     .prodDetailWhitecont {
         background-color: white;
