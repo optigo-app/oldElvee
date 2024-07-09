@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div id='craftmenshipId'>
     <div>
-    <p className='craftmenship'>Our Craftmenship</p>
+    <p className='craftmenship'>Our Craftsmanship</p>
     </div>
       <Swiper
         navigation={true}

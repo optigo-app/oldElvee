@@ -36,6 +36,8 @@ import { SearchProductDataAPI } from "../../../../Utils/API/SearchProductDataAPI
 import { SearchPriceDataAPI } from "../../../../Utils/API/SearchPriceDataAPI";
 import { FaCaretDown } from "react-icons/fa6";
 import { AiFillCaretDown } from "react-icons/ai";
+import banner from '../../../assets/Banner2.jpg';
+import bann1 from '../../../assets/Banner1.jpg';
 
 export default function Header() {
   // const [titleImg, setTitleImg ] = useState() 
@@ -1137,7 +1139,8 @@ export default function Header() {
                       }}
                       onClick={() => handleMenuClick(item)}
                     >
-                      {item.menuname}<IoCaretDownSharp style={{ height: '24px', width: '20px', marginLeft: '3px' }} />
+                      {item.menuname}
+                      {/* <IoCaretDownSharp style={{ height: '24px', width: '20px', marginLeft: '3px' }} /> */}
                     </li>
                   ))}
                 </ul>
@@ -1242,8 +1245,10 @@ export default function Header() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '15px' }}>
-                  <img src={`${storImagePath()}/images/Menu/Menu1.jpg`} alt="#" className="menuImages" />
-                  <img src={`${storImagePath()}/images/Menu/Menu2.jpg`} alt="#" className="menuImages" />
+                  <img src={banner} alt="#" className="menuImages" />
+                  {/* <img src={`${storImagePath()}/images/Menu/Menu1.jpg`} alt="#" className="menuImages" /> */}
+                  {/* <img src={`${storImagePath()}/images/Menu/Menu2.jpg`} alt="#" className="menuImages" /> */}
+                  <img src={bann1} alt="#" className="menuImages" />
                 </div>
 
               </div>
